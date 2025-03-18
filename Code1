@@ -1,0 +1,23 @@
+import pandas as pd
+import random
+from matplotlib import pyplot as plt
+
+pd.set_option('display.max_colwidth', 1000, 'display.max_rows', None)
+import seaborn as sns
+import numpy as np
+
+import os
+
+from sklearn.model_selection import train_test_split
+
+df = pd.read_csv('/Users/admin/Downloads/EPA_SmartLocationDatabase_V3_Jan_2021_Final.csv')
+
+# Correct filter using both STATEFP (NC = 37) and COUNTYFP (Mecklenburg = 119)
+charlotte_df = df[(df['STATEFP'] == 37) & (df['COUNTYFP'] == 119)]
+
+charlotte_df.info()
+
+print(charlotte_df)
+
+print(charlotte_df.head())
+
